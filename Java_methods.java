@@ -34,9 +34,10 @@ public class Java_functions{
 
         //Integer array
         System.out.print("Enter integer array: ");
-        int arr[]=new int[3]; //datatype name[]=new datatype[size]
-        for(int i=0;i<3;i++) arr[i]=s.nextInt();
-        for(int i=0;i<3;i++) System.out.print(arr[i]+" ");
+        int arr[]=new int[5];                        // datatype name[]=new datatype[size]
+        for(int i=0;i<5;i++) arr[i]=s.nextInt();     // [34,23,4,32,12]
+        Arrays.sort(arr);                            // [4,12,23,32,34]
+        for(int i:arr) System.out.print(i+" ");
 
         //String array
         System.out.print("Enter string array: ");
@@ -75,7 +76,56 @@ public class Java_functions{
         System.out.println(str.replace('l','e'));     // heeeo java
         for(String i:str1) System.out.println(i);     
         char ch[]=str.toCharArray();
-        for(int i=0;i<ch.length;i++) System.out.print(ch[i]+" "); // h e e e o  j a v a
+        for(int i=0;i<ch.length;i++) System.out.print(ch[i]+" "); // H E L L O  J A V A
+
+        //=====================Vector=========================//
+        
+        //Integer_vector
+        Vector<Integer> vi=new Vector<Integer>();
+        vi.add(1);                                // [1]
+        vi.add(2);                                // [1,2]
+        vi.add(2,45);                             // [1,2,45]
+        vi.add(2,200);                            // [1,2,200,45]
+        vi.elementAt(3);                          // 45
+        vi.indexOf(200);                          // 2
+        vi.remove(1);                             // [1,200,45]
+        Collections.sort(vi);                     // [1,45,200]
+        System.out.println(vi.contains(45));      // true
+        System.out.println(vi);
+
+        //String_vector
+        Vector<String> vs=new Vector<String>();
+        vs.add("hi");               // [hi]
+        vs.add("hello");            // [hi,hello]
+        vs.add(1,"java");           // [hi,java,hello]
+        vs.remove(2);               // [hi,java]
+        System.out.println(vs);
+
+        vi.clear();                 // []
+        vs.clear();                 // []  
+
+        //====================Set=============================//
+
+        Set<String> set_st=new HashSet<String>();
+        set_st.add("Hey");
+        set_st.add("Hello");
+        set_st.add("java");
+        set_st.add("Hey");
+        set_st.add("java");
+        System.out.println(set_st);  // [java,Hello,Hey]
+
+        //===================Maps============================//
+        Map<Integer,String> mp=new HashMap<Integer,String>();
+        mp.put(10,"Hi");
+        mp.put(20,"Hello");
+        mp.put(30,"Java");
+        System.out.println(mp.get(10));                  // Hi
+        System.out.println(mp);                          // {20=Hello, 10=Hi, 30=Java}
+        mp.remove(20);
+        System.out.println(mp);                          // {10=Hi, 30=Java}
+        for(Map.Entry<Integer,String> e: mp.entrySet()){
+            System.out.println(e.getKey()+" "+e.getValue());
+        } 
 
         s.close();
     }
